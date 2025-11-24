@@ -10,8 +10,6 @@ pyjwt
 passlib[bcrypt]
 python-dotenv
 sqlalchemy
-psycopg2-binary
 ytsr
 python-jose[cryptography]
-pyaudioop
 psycopg2

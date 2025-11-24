@@ -1,9 +1,11 @@
 from fastapi import APIRouter, Depends, Form, File, UploadFile, HTTPException
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
+
 import os
 import uuid
 import asyncio
+from pydub import AudioSegment
 from ..models import Job
 from ..database import get_db
 from ..auth import get_current_user
@@ -27,7 +29,9 @@ async def process(
     os.makedirs(job_dir, exist_ok=True)
     # Placeholder for processing logic
     await asyncio.sleep(2)
-    open(f"{job_dir}/final.mp3", "w").close()
+    # Create a 1-second silent mp3 using pydub
+    silent = AudioSegment.silent(duration=1000)  # 1 second
+    silent.export(f"{job_dir}/final.mp3", format="mp3")
     job = Job(job_id=job_id, title="Test", user_id=user.id if user else None)
     db.add(job); db.commit()
     return {"job_id": job_id, "download_url": f"/download/{job_id}"}
