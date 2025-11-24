@@ -8,11 +8,11 @@ export default function MessageBubble({ role, text, time }: { role: "user" | "as
   return (
     <div className={`mb-4 flex ${isUser ? "justify-end" : "justify-start"}`}>
       <div className={`flex items-start gap-3 max-w-[80%] ${isUser ? "flex-row-reverse" : ""}`}>
-        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center text-white font-bold">{isUser ? 'U' : 'A'}</div>
+        <div className="w-9 h-9 rounded-full bg-linear-to-br from-purple-600 to-pink-500 flex items-center justify-center text-white font-bold">{isUser ? 'U' : 'A'}</div>
         <div>
           <div
             onClick={() => setExpanded((s) => !s)}
-            className={`${isUser ? "bg-purple-600 text-white" : "bg-white/6 text-gray-100"} px-4 py-3 rounded-lg cursor-pointer break-words`}
+            className={`${isUser ? "bg-purple-600 text-white" : "bg-white/6 text-gray-100"} px-4 py-3 rounded-lg cursor-pointer break-normal`}
             style={{ whiteSpace: expanded ? 'normal' : 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '640px' }}
           >
             {text}

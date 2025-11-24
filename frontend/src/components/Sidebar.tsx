@@ -1,5 +1,6 @@
 "use client";
 import { Home, Brain, History, Settings, LogOut, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,11 +13,12 @@ const navItems = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <div className="w-64 glass h-full flex flex-col">
       <div className="p-6 border-b border-white/10">
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <h1 className="text-2xl font-bold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
           ListenWise
         </h1>
       </div>
@@ -31,7 +33,7 @@ export default function Sidebar() {
               href={item.href}
               className={`flex items-center gap-4 px-4 py-3 rounded-xl mb-2 transition-all ${
                 isActive
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+                  ? "bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg"
                   : "hover:bg-white/10 text-gray-300"
               }`}
             >
@@ -43,7 +45,13 @@ export default function Sidebar() {
       </nav>
 
       <div className="p-4 border-t border-white/10">
-        <button className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-white/10 text-gray-400 w-full">
+        <button
+          className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-white/10 text-gray-400 w-full"
+          onClick={() => {
+            localStorage.removeItem("token");
+            router.push("/login");
+          }}
+        >
           <LogOut className="w-5 h-5" />
           <span>Logout</span>
         </button>

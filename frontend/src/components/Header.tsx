@@ -3,7 +3,7 @@ export default function Header() {
     <header className="glass border-b border-white/10 px-8 py-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full" />
+          <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-500 rounded-full" />
           <div>
             <p className="text-sm text-gray-400">Welcome back</p>
             <p className="font-semibold">Abidemi</p>

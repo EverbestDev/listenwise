@@ -23,15 +23,15 @@ export default function AdminPage() {
       <h2 className="text-2xl font-semibold mb-6">Admin</h2>
       {stats ? (
         <div className="grid grid-cols-3 gap-4">
-          <div className="glass p-6 rounded-lg">
+          <div className="bg-white bg-opacity-60 backdrop-blur-xl border border-gray-200 p-6 rounded-lg">
             <div className="text-sm text-gray-400">Users</div>
             <div className="text-2xl font-bold">{stats.total_users}</div>
           </div>
-          <div className="glass p-6 rounded-lg">
+          <div className="bg-white bg-opacity-60 backdrop-blur-xl border border-gray-200 p-6 rounded-lg">
             <div className="text-sm text-gray-400">Jobs</div>
             <div className="text-2xl font-bold">{stats.total_jobs}</div>
           </div>
-          <div className="glass p-6 rounded-lg">
+          <div className="bg-white bg-opacity-60 backdrop-blur-xl border border-gray-200 p-6 rounded-lg">
             <div className="text-sm text-gray-400">Today</div>
             <div className="text-2xl font-bold">{stats.today_jobs}</div>
           </div>

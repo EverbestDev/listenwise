@@ -48,7 +48,7 @@ export default function Home() {
         <p className="text-sm text-gray-400">Ask questions, request summaries, or style the explanation.</p>
       </div>
 
-      <div className="flex-1 overflow-auto glass rounded-xl p-6 mb-4" style={{ minHeight: 480 }}>
+      <div className="flex-1 overflow-auto bg-white bg-opacity-60 backdrop-blur-xl border border-gray-200 rounded-xl p-6 mb-4" style={{ minHeight: 480 }}>
         {messages.map((m) => (
           <MessageBubble key={m.id} role={m.role} text={m.text} time={m.time} />
         ))}

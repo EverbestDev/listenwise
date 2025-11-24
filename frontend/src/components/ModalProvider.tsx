@@ -70,7 +70,7 @@ export default function ModalProvider({ children }: { children: React.ReactNode 
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/60" onClick={hideModal} />
-          <div className="relative bg-white/6 p-6 rounded-xl max-w-lg w-full glass">
+          <div className="relative bg-white bg-opacity-60 backdrop-blur-xl border border-gray-200 p-6 rounded-xl max-w-lg w-full">
             <div className="flex justify-between items-start">
               <div>
                 {opts.title && <h3 className="text-lg font-semibold mb-2">{opts.title}</h3>}
@@ -88,7 +88,7 @@ export default function ModalProvider({ children }: { children: React.ReactNode 
       {confirmOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/60" onClick={() => handleConfirm(false)} />
-          <div className="relative bg-white/6 p-6 rounded-xl max-w-lg w-full glass">
+          <div className="relative bg-white bg-opacity-60 backdrop-blur-xl border border-gray-200 p-6 rounded-xl max-w-lg w-full">
             <div className="flex justify-between items-start">
               <div>
                 {confirmOpts.title && <h3 className="text-lg font-semibold mb-2">{confirmOpts.title}</h3>}
