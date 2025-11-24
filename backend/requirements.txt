@@ -13,3 +13,5 @@ sqlalchemy
 psycopg2-binary
 ytsr
 python-jose[cryptography]
+python-3.12.7
+pyaudioop
