@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-multipart
+yt-dlp
+edge-tts
+pydub
+PyPDF2
+groq
+pyjwt
+passlib[bcrypt]
+python-dotenv
+sqlalchemy
+psycopg2-binary
+ytsr
+python-jose[cryptography]
