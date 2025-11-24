@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
+import os
 from .database import init_db
 from .admin import router as admin_router
 from .jobs import router as jobs_router
@@ -19,3 +21,26 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, 
 @app.on_event("startup")
 def startup():
     init_db()
+
+
+FRONTEND_URL = os.environ.get("FRONTEND_URL", "https://listenwise.vercel.app/")
+
+
+@app.get("/")
+def root():
+    """Root endpoint — redirect to frontend by default (Vercel)."""
+    return RedirectResponse(FRONTEND_URL)
+
+
+@app.get("/health")
+def health():
+    """Health check endpoint. Returns status and database connectivity check."""
+    try:
+        # quick DB check
+        from .database import SessionLocal
+        db = SessionLocal()
+        db.execute("SELECT 1")
+        db.close()
+        return {"ok": True}
+    except Exception:
+        return {"ok": False}
