@@ -3,7 +3,7 @@ uvicorn[standard]
 python-multipart
 yt-dlp
 edge-tts
-pydub
+pydub==0.25.1
 PyPDF2
 groq
 pyjwt
